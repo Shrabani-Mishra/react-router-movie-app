@@ -5,6 +5,7 @@ import { Movie } from "./pages/Movie";
 import { Contact } from "./pages/Contact";
 import AppLayout from "./components/Layout/AppLayout";
 import { ErrorPage } from "./pages/ErrorPage";
+import { getMoviesData } from "./api/GetAPIData";
 const App=()=>{
   const router=createBrowserRouter([
     {
@@ -23,7 +24,8 @@ const App=()=>{
      {
       path:"/movie",
       element:<Movie/>,
-    },
+      loader:getMoviesData ,
+      },
      {
       path:"/contact",
       element:<Contact/>,
