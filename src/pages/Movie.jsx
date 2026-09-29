@@ -4,6 +4,15 @@ import { Card } from "../UI/Card";
 export const Movie = () => {
   const moviesData = useLoaderData();
 
+  // Safety check
+  if (!moviesData || moviesData.Response === "False") {
+    return (
+      <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">
+        <p>{moviesData?.Error || "No movies found!"}</p>
+      </div>
+    );
+  }
+
   return (
     <section className="min-h-screen bg-slate-950 px-4 py-10 text-white">
       
@@ -12,7 +21,6 @@ export const Movie = () => {
         <h1 className="text-4xl font-bold tracking-tight">
           🎬 Popular Movies
         </h1>
-
         <p className="mt-2 text-slate-400">
           Explore popular movies and discover your next favorite.
         </p>
@@ -20,14 +28,13 @@ export const Movie = () => {
 
       {/* Movie Grid */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {moviesData.Search.map((curMovie) => (
+        {moviesData.Search?.map((curMovie) => (
           <Card
             key={curMovie.imdbID}
             movie={curMovie}
           />
         ))}
       </div>
-
     </section>
   );
 };
