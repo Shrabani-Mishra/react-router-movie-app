@@ -5,7 +5,6 @@ Live Demo: **https://react-router-movie-shrabani.netlify.app**
 A responsive movie search & details app built with React Router and OMDB API.
 
 ### ✨ Features
-- Search movies by name
 - Movie details page with Poster, Plot, Cast, IMDb Rating
 - React Router v6 - Nested Routes, Loader
 - Fallback poster for N/A images
